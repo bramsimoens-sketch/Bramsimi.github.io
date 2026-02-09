@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche | Precision. Performance. Passion.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a1a2d;
+            color: #e6f1ff;
+            line-height: 1.6;
+        }
+        
+        .blue-theme {
+            --primary-blue: #003366;
+            --secondary-blue: #00509e;
+            --accent-blue: #0077cc;
+            --light-blue: #4d9de0;
+            --dark-blue: #001a33;
+            --text-light: #e6f1ff;
+            --text-dark: #0a1a2d;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(0, 20, 40, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 40, 80, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e6f1ff;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text span {
+            color: #4d9de0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #e6f1ff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: #4d9de0;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #4d9de0;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 30, 60, 0.8), rgba(0, 20, 40, 0.9)), 
+                        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            color: #e6f1ff;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #c2d9ff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #00509e;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 2px solid #00509e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            border-color: #4d9de0;
+            color: #4d9de0;
+        }
+        
+        /* Models Section */
+        .models {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #e6f1ff;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: #4d9de0;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #c2d9ff;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .model-card {
+            background-color: #001a33;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(77, 157, 224, 0.1);
+        }
+        
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 80, 158, 0.3);
+            border-color: rgba(77, 157, 224, 0.3);
+        }
+        
+        .model-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .model-content {
+            padding: 25px;
+        }
+        
+        .model-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #e6f1ff;
+        }
+        
+        .model-content p {
+            color: #c2d9ff;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .model-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .spec {
+            text-align: center;
+        }
+        
+        .spec-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #4d9de0;
+        }
+        
+        .spec-label {
+            font-size: 0.8rem;
+            color: #a3c6f0;
+        }
+        
+        /* History Section */
+        .history {
+            padding: 100px 20px;
+            background-color: #001a33;
+        }
+        
+        .history-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        
+        .history-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .history-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #e6f1ff;
+        }
+        
+        .history-text p {
+            margin-bottom: 20px;
+            color: #c2d9ff;
+        }
+        
+        .history-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .history-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .history-image:hover .history-img {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #000d1a;
+            padding: 70px 20px 30px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: #e6f1ff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: #4d9de0;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            color: #a3c6f0;
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #a3c6f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #4d9de0;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #003366;
+            border-radius: 50%;
+            color: #e6f1ff;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: #4d9de0;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(77, 157, 224, 0.1);
+            color: #a3c6f0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .history-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 0L100 50L50 100L0 50L50 0Z" fill="#4d9de0"/>
+                        <path d="M30 40H70V60H30V40Z" fill="#001a33"/>
+                        <path d="M40 30V70H60V30H40Z" fill="#001a33"/>
+                    </svg>
+                </div>
+                <div class="logo-text">PORSCHE<span>.</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#models">Models</a></li>
+                    <li><a href="#history">History</a></li>
+                    <li><a href="#innovation">Innovation</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>PRECISION. PERFORMANCE. PASSION.</h1>
+            <p>Experience the pinnacle of German engineering with Porsche's legendary sports cars. Born on the racetrack, built for the road.</p>
+            <a href="#models" class="btn">Explore Models</a>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section class="models" id="models">
+        <div class="section-title">
+            <h2>OUR MODELS</h2>
+            <p>Discover the Porsche lineup, from iconic 911 to the revolutionary Taycan.</p>
+        </div>
+        
+        <div class="models-grid">
+            <!-- Porsche 911 -->
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Porsche 911" class="model-img">
+                <div class="model-content">
+                    <h3>Porsche 911</h3>
+                    <p>The iconic sports car that combines timeless design with cutting-edge technology. The 911 continues to set the benchmark for performance and driving pleasure.</p>
+                    <div class="model-specs">
+                        <div class="spec">
+                            <div class="spec-value">3.8s</div>
+                            <div class="spec-label">0-100 km/h</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-value">450 HP</div>
+                            <div class="spec-label">Power</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-value">293 km/h</div>
+                            <div class="spec-label">Top Speed</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Porsche Taycan -->
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Porsche Taycan" class="model-img">
+                <div class="model-content">
+                    <h3>Porsche Taycan</h3>
+                    <p>The first all-electric Porsche sports car. Taycan combines legendary Porsche performance with zero-emission mobility and futuristic design.</p>
+                    <div class="model-specs">
+                        <div class="spec">
+                            <div class="spec-value">2.8s</div>
+                            <div class="spec-label">0-100 km/h</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-value">761 HP</div>
+                            <div class="spec-label">Power</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-value">260+ mi</div>
+                            <div class="spec-label">Range</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Porsche Cayenne -->
+            <div class="model-card">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                     alt="Porsche Cayenne" class="model-img">
+                <div class="model-content">
+                    <h3>Porsche Cayenne</h3>
+                    <p>The sportscar among SUVs. Cayenne offers exceptional performance, luxurious comfort, and everyday practicality without compromise.</p>
+                    <div class="model-specs">
+                        <div class="spec">
+                            <div class="spec-value">4.1s</div>
+                            <div class="spec-label">0-100 km/h</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-value">680 HP</div>
+                            <div class="spec-label">Power</div>
+                        </div>
+                        <div class="spec">
+                            <div class="spec-label">SUV</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history" id="history">
+        <div class="history-content">
+            <div class="history-text">
+                <h2>LEGACY OF INNOVATION</h2>
+                <p>Founded in 1931 by Ferdinand Porsche, the company has established itself as one of the most prestigious sports car manufacturers in the world. With a rich racing heritage spanning over seven decades, Porsche's engineering excellence has been proven on racetracks worldwide.</p>
+                <p>The first Porsche 356 was produced in 1948, marking the beginning of a legendary lineage that would culminate in the iconic 911, introduced in 1963 and still in production today.</p>
+                <p>Today, Porsche continues to push boundaries with innovative technologies, electrification, and sustainable mobility solutions while staying true to its core values of performance, quality, and driving pleasure.</p>
+                <a href="#" class="btn">Discover Our History</a>
+            </div>
+            <div class="history-image">
+                <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" 
+                     alt="Classic Porsche" class="history-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Porsche</h3>
+                <p>Porsche is a German automobile manufacturer specializing in high-performance sports cars, SUVs, and sedans. Founded in 1931, the company is headquartered in Stuttgart, Germany.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#models">Models</a></li>
+                    <li><a href="#history">History</a></li>
+                    <li><a href="#">Innovation</a></li>
+                    <li><a href="#">Configurator</a></li>
+                    <li><a href="#">Find a Dealer</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Porscheplatz 1, 70435 Stuttgart, Germany</p>
+                <p><i class="fas fa-phone"></i> +49 711 911 0</p>
+                <p><i class="fas fa-envelope"></i> info@porsche.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Porsche AG. All rights reserved. | Porsche Design is a trademark of Porsche AG.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(0, 20, 40, 0.98)';
+                header.style.boxShadow = '0 4px 12px rgba(0, 40, 80, 0.4)';
+            } else {
+                header.style.backgroundColor = 'rgba(0, 20, 40, 0.95)';
+                header.style.boxShadow = '0 4px 12px rgba(0, 40, 80, 0.3)';
+            }
+        });
+        
+        // Model card animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe model cards
+        document.querySelectorAll('.model-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
